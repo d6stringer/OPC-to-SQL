@@ -33,10 +33,13 @@ if __name__ == '__main__':
                 if job_status:
                     print(data)
                     pSQL.send_linescan_to_pSQL(data)
-                    #OPC_Connector.write_ok(yams['nodes']['write_ok'])
+                    OPC_Connector.int_change(yams['nodes']['write_ok'],1)
+                else:
+                    OPC_Connector.int_change(yams['nodes']['write_ok'],0)
 
             time.sleep(0.1)
 
 
     except KeyboardInterrupt:
         print('break')
+        OPC_Connector.kill_session()
