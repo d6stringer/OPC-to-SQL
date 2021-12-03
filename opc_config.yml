@@ -1,0 +1,23 @@
+ip_addresses:
+  local_host: "opc.tcp://192.168.0.1:4840"
+  cognex_linescan: "opc.tcp://192.168.54.11:4840"
+  crc_opc: "ocp.tcp://192.168.54.15:4840"
+
+timeouts:
+    default: 360000
+
+nodes:
+#CRC
+    crc_distance: ns=4;i=2
+
+#linescan
+    part_count: ns=2;s=Part_Count
+    job_number: ns=2;s=Job_Number
+    count_of_blobs: ns=2;s=Count_of_Blobs
+    part_width: ns=2;s=Part_Width
+    histogram_avg: ns=2;s=Histogram_Avg
+    histogram_contrast: ns=2;s=Histogram_Contrast
+    job_active: ns=2;s=Job_Active
+    write_ok: ns=2;s=Write_OK
+
+
