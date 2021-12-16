@@ -19,5 +19,8 @@ nodes:
     histogram_contrast: ns=2;s=Histogram_Contrast
     job_active: ns=2;s=Job_Active
     write_ok: ns=2;s=Write_OK
+    too_many_blobs: ns=2;s=Too_Many_Blobs
+    really_big_blob: ns=2;s=Really_Big_Blob
+    too_many_big_blobs: ns=2;s=Too_Many_Big_Blobs
 
 
