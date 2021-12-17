@@ -1,15 +1,17 @@
 #Adapted from examples found here: https://www.postgresqltutorial.com/postgresql-python/query/
 
 import psycopg2
+from decouple import config
 import datetime
 #make the connection to the RDB
 def pSQL_conn():
+
     pSQL_conn = psycopg2.connect(
-        host = "bmus-db-sfo3-default-do-user-672237-0.a.db.ondigitalocean.com",
-        database = "operations",
-        user = "daniel",
-        password = "w4vbhlwjqikzuqca",
-        port = "25060"
+        host=config('host', default=''),
+        database=config('database', default=''),
+        user=config('user', default=''),
+        password=config('password', default=''),
+        port=config('port', default='')
     )
     return pSQL_conn
 
