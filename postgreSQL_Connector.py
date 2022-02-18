@@ -19,8 +19,52 @@ def send_linescan_to_pSQL(data):
     connection = pSQL_conn()
     cursor = connection.cursor()
     cursor.execute("""
-        INSERT INTO linescan_data (id, datetime, part_count, job_number, count_of_blobs, part_width, histogram_avg, histogram_contrast) 
-        VALUES (default, default, %s, %s, %s, %s, %s, %s)
+        INSERT INTO machine_run_data (
+            traveler_id, 
+            part_count, 
+            total_part_count, 
+            time_stamp, 
+            top_heater_SV,
+            top_heater_PV,
+            top_heater_enable,
+            bottom_heater_SV,
+            bottom_heater_PV,
+            bottom_heater_enable,
+            cooling_fans,
+            line_speed,
+            waste_tension,
+            feed_tension,
+            roll_diameter,
+            start_mode,
+            slow_start_mode,
+            stop_mode,
+            jog_mode,
+            safety_ok,
+            system_enable
+            ) 
+        VALUES (
+            %s, 
+            %s, 
+            %s, 
+            default,
+            %s, 
+            %s, 
+            %s, 
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s,
+            %s
+        )
         """,
         (data[0], data[1], data[2], data[3], data[4], data[5]))
     # row = cursor.fetchone()

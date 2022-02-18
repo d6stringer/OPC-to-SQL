@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet LastModified="2022-02-17T22:16:49Z" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:si="http://www.siemens.com/OPCUA/2017/SimaticNodeSetExtensions">
+  <NamespaceUris>
+    <Uri>http://www.siemens.com/simatic-s7-opcua</Uri>
+    <Uri>http://SQL_Interface</Uri>
+  </NamespaceUris>
+  <Aliases>
+    <Alias Alias="BOOL">i=1</Alias>
+    <Alias Alias="USINT">i=3</Alias>
+    <Alias Alias="INT">i=4</Alias>
+    <Alias Alias="UINT">i=5</Alias>
+    <Alias Alias="UDINT">i=7</Alias>
+    <Alias Alias="REAL">i=10</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="HasModellingRule">i=37</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="HasEncoding">i=38</Alias>
+  </Aliases>
+  <Extensions>
+    <Extension>
+      <si:Generator Product="TIA Portal" Edition="STEP 7 - Server Interface Generation" Version="V1.0.0" />
+    </Extension>
+  </Extensions>
+  <UADataType NodeId="ns=1;i=3001" BrowseName="1:BYTE">
+    <DisplayName>BYTE</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=3</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3002" BrowseName="1:WORD">
+    <DisplayName>WORD</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3003" BrowseName="1:DWORD">
+    <DisplayName>DWORD</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=7</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3004" BrowseName="1:LWORD">
+    <DisplayName>LWORD</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=9</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3005" BrowseName="1:S5TIME">
+    <DisplayName>S5TIME</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3006" BrowseName="1:TIME">
+    <DisplayName>TIME</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=6</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3007" BrowseName="1:LTIME">
+    <DisplayName>LTIME</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=8</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3008" BrowseName="1:DATE">
+    <DisplayName>DATE</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3011" BrowseName="1:DT">
+    <DisplayName>DT</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=3</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3009" BrowseName="1:TOD">
+    <DisplayName>TOD</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=7</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3010" BrowseName="1:LTOD">
+    <DisplayName>LTOD</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=9</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3067" BrowseName="1:POINTER">
+    <DisplayName>POINTER</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=3</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3065" BrowseName="1:ANY">
+    <DisplayName>ANY</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3066</Reference>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=3</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3066" BrowseName="1:REMOTE">
+    <DisplayName>REMOTE</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3012" BrowseName="1:CHAR">
+    <DisplayName>CHAR</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=3</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3013" BrowseName="1:WCHAR">
+    <DisplayName>WCHAR</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3014" BrowseName="1:STRING">
+    <DisplayName>STRING</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=12</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3015" BrowseName="1:TIMER">
+    <DisplayName>TIMER</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3016" BrowseName="1:COUNTER">
+    <DisplayName>COUNTER</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3019" BrowseName="1:BLOCK_DB">
+    <DisplayName>BLOCK_DB</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3018" BrowseName="1:BLOCK_FB">
+    <DisplayName>BLOCK_FB</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3017" BrowseName="1:BLOCK_FC">
+    <DisplayName>BLOCK_FC</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3020" BrowseName="1:BLOCK_SDB">
+    <DisplayName>BLOCK_SDB</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3024" BrowseName="1:HW_ANY">
+    <DisplayName>HW_ANY</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3034</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3035</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3033</Reference>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3034" BrowseName="1:HW_IO">
+    <DisplayName>HW_IO</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3037</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3036</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3035" BrowseName="1:HW_IOSYSTEM">
+    <DisplayName>HW_IOSYSTEM</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3037" BrowseName="1:HW_MODULE">
+    <DisplayName>HW_MODULE</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3036" BrowseName="1:HW_SUBMODULE">
+    <DisplayName>HW_SUBMODULE</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3039</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3040</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3041</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3042</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3058</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3038</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3039" BrowseName="1:HW_IEPORT">
+    <DisplayName>HW_IEPORT</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3040" BrowseName="1:HW_HSC">
+    <DisplayName>HW_HSC</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3041" BrowseName="1:HW_PWM">
+    <DisplayName>HW_PWM</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3042" BrowseName="1:HW_PTO">
+    <DisplayName>HW_PTO</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3058" BrowseName="1:PORT">
+    <DisplayName>PORT</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3038" BrowseName="1:HW_INTERFACE">
+    <DisplayName>HW_INTERFACE</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3044</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3033" BrowseName="1:HW_DEVICE">
+    <DisplayName>HW_DEVICE</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3045</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3044" BrowseName="1:HW_DPMASTER">
+    <DisplayName>HW_DPMASTER</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3045" BrowseName="1:HW_DPSLAVE">
+    <DisplayName>HW_DPSLAVE</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3026" BrowseName="1:AOM_IDENT">
+    <DisplayName>AOM_IDENT</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3046</Reference>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=7</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3046" BrowseName="1:EVENT_ANY">
+    <DisplayName>EVENT_ANY</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3047</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3047" BrowseName="1:EVENT_ATT">
+    <DisplayName>EVENT_ATT</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3048</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3048" BrowseName="1:EVENT_HWINT">
+    <DisplayName>EVENT_HWINT</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3027" BrowseName="1:OB_ANY">
+    <DisplayName>OB_ANY</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3051</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3049</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3055</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3053</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3057</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3056</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3050</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3052</Reference>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=4</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3051" BrowseName="1:OB_CYCLIC">
+    <DisplayName>OB_CYCLIC</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3049" BrowseName="1:OB_DELAY">
+    <DisplayName>OB_DELAY</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3055" BrowseName="1:OB_DIAG">
+    <DisplayName>OB_DIAG</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3053" BrowseName="1:OB_PCYCLE">
+    <DisplayName>OB_PCYCLE</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3057" BrowseName="1:OB_STARTUP">
+    <DisplayName>OB_STARTUP</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3056" BrowseName="1:OB_TIMEERROR">
+    <DisplayName>OB_TIMEERROR</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3050" BrowseName="1:OB_TOD">
+    <DisplayName>OB_TOD</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3052" BrowseName="1:OB_ATT">
+    <DisplayName>OB_ATT</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3054</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3054" BrowseName="1:OB_HWINT">
+    <DisplayName>OB_HWINT</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3028" BrowseName="1:RTM">
+    <DisplayName>RTM</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3029" BrowseName="1:PIP">
+    <DisplayName>PIP</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3030" BrowseName="1:CONN_ANY">
+    <DisplayName>CONN_ANY</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3060</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3059</Reference>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3060" BrowseName="1:CONN_OUC">
+    <DisplayName>CONN_OUC</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3059" BrowseName="1:CONN_PRG">
+    <DisplayName>CONN_PRG</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3031" BrowseName="1:CONN_R_ID">
+    <DisplayName>CONN_R_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=7</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3032" BrowseName="1:DB_ANY">
+    <DisplayName>DB_ANY</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3062</Reference>
+      <Reference ReferenceType="HasSubtype">ns=1;i=3061</Reference>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=5</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3062" BrowseName="1:DB_DYN">
+    <DisplayName>DB_DYN</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3061" BrowseName="1:DB_WWW">
+    <DisplayName>DB_WWW</DisplayName>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3400" BrowseName="1:SimaticStructures">
+    <DisplayName>SimaticStructures</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3500" BrowseName="1:SimaticSystemStructures">
+    <DisplayName>SimaticSystemStructures</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+    </References>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3064" BrowseName="1:SimaticVersion">
+    <DisplayName>SimaticVersion</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+    </References>
+    <Definition Name="1:SimaticVersion">
+      <Field DataType="i=6" Name="Major" />
+      <Field DataType="i=6" Name="Minor" />
+      <Field DataType="i=6" Name="Build" />
+    </Definition>
+  </UADataType>
+  <UAObjectType NodeId="ns=1;i=1004" BrowseName="1:SimaticInterfaceType" IsAbstract="false">
+    <DisplayName>SimaticInterfaceType</DisplayName>
+    <References>
+      <Reference ReferenceType="HasProperty">ns=1;i=6010</Reference>
+    </References>
+  </UAObjectType>
+  <UAVariable NodeId="ns=1;i=6010" BrowseName="Icon" DataType="i=30" AccessLevel="1">
+    <DisplayName>Icon</DisplayName>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=ServerInterfaces" BrowseName="1:ServerInterfaces">
+    <DisplayName>ServerInterfaces</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=1</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=2;i=1" BrowseName="2:SQL_Interface">
+    <DisplayName>SQL_Interface</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6010</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=42</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=44</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=45</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=46</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=47</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=48</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=49</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=50</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=51</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=52</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=53</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=56</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=57</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=58</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=59</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=60</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=61</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=62</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=63</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=64</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=65</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=66</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=67</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=68</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=69</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=70</Reference>
+      <Reference ReferenceType="Organizes">ns=2;i=71</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=2;i=42" BrowseName="2:Die_Cutter_Part_Count_Cannot_Reset_For_SQL" DataType="INT" AccessLevel="3">
+    <DisplayName>Die_Cutter_Part_Count_Cannot_Reset_For_SQL</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Die_Cutter_Part_Count_Cannot_Reset_For_SQL"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=44" BrowseName="2:YEAR" DataType="UINT" AccessLevel="3">
+    <DisplayName>YEAR</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Time_Sync_DB"."Time_Local_READ"."YEAR"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=45" BrowseName="2:MONTH" DataType="USINT" AccessLevel="3">
+    <DisplayName>MONTH</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Time_Sync_DB"."Time_Local_READ"."MONTH"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=46" BrowseName="2:DAY" DataType="USINT" AccessLevel="3">
+    <DisplayName>DAY</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Time_Sync_DB"."Time_Local_READ"."DAY"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=47" BrowseName="2:WEEKDAY" DataType="USINT" AccessLevel="3">
+    <DisplayName>WEEKDAY</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Time_Sync_DB"."Time_Local_READ"."WEEKDAY"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=48" BrowseName="2:HOUR" DataType="USINT" AccessLevel="3">
+    <DisplayName>HOUR</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Time_Sync_DB"."Time_Local_READ"."HOUR"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=49" BrowseName="2:MINUTE" DataType="USINT" AccessLevel="3">
+    <DisplayName>MINUTE</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Time_Sync_DB"."Time_Local_READ"."MINUTE"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=50" BrowseName="2:SECOND" DataType="USINT" AccessLevel="3">
+    <DisplayName>SECOND</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Time_Sync_DB"."Time_Local_READ"."SECOND"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=51" BrowseName="2:NANOSECOND" DataType="UDINT" AccessLevel="3">
+    <DisplayName>NANOSECOND</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Time_Sync_DB"."Time_Local_READ"."NANOSECOND"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=52" BrowseName="2:Die Cutter Speed (0-20mA) 8025" DataType="INT" AccessLevel="3">
+    <DisplayName>Die Cutter Speed (0-20mA) 8025</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Die Cutter Speed (0-20mA) 8025"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=53" BrowseName="2:Drum Heater Selector On/Off Switch 8013" DataType="BOOL" AccessLevel="3">
+    <DisplayName>Drum Heater Selector On/Off Switch 8013</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Drum Heater Selector On/Off Switch 8013"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=56" BrowseName="2:Fan 1+2 CR 8014" DataType="BOOL" AccessLevel="3">
+    <DisplayName>Fan 1+2 CR 8014</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Fan 1+2 CR 8014"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=57" BrowseName="2:Jog Engaged bit" DataType="BOOL" AccessLevel="3">
+    <DisplayName>Jog Engaged bit</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Jog Engaged bit"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=58" BrowseName="2:Particle Brake Analog Signal (0-10V) 8211" DataType="INT" AccessLevel="3">
+    <DisplayName>Particle Brake Analog Signal (0-10V) 8211</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Particle Brake Analog Signal (0-10V) 8211"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=59" BrowseName="2:Safety OK bit" DataType="BOOL" AccessLevel="3">
+    <DisplayName>Safety OK bit</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Safety OK bit"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=60" BrowseName="2:Slow Start Engaged bit" DataType="BOOL" AccessLevel="3">
+    <DisplayName>Slow Start Engaged bit</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Slow Start Engaged bit"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=61" BrowseName="2:Stop Command bit" DataType="BOOL" AccessLevel="3">
+    <DisplayName>Stop Command bit</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Stop Command bit"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=62" BrowseName="2:System Enable 2 Position Switch 8001" DataType="BOOL" AccessLevel="3">
+    <DisplayName>System Enable 2 Position Switch 8001</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"System Enable 2 Position Switch 8001"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=63" BrowseName="2:Take Up Carotron Analog Signal (0-10V) 8209 From 0 to 27648" DataType="INT" AccessLevel="3">
+    <DisplayName>Take Up Carotron Analog Signal (0-10V) 8209 From 0 to 27648</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Take Up Carotron Analog Signal (0-10V) 8209 From 0 to 27648"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=64" BrowseName="2:Full Speed Engaged bit" DataType="BOOL" AccessLevel="3">
+    <DisplayName>Full Speed Engaged bit</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Full Speed Engaged bit"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=65" BrowseName="2:Setpoint RTD Drum Heater" DataType="REAL" AccessLevel="3">
+    <DisplayName>Setpoint RTD Drum Heater</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Setpoint RTD Drum Heater"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=66" BrowseName="2:Setpoint RTD Idle Heater" DataType="REAL" AccessLevel="3">
+    <DisplayName>Setpoint RTD Idle Heater</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Setpoint RTD Idle Heater"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=67" BrowseName="2:Idle Heater RTD 8401" DataType="INT" AccessLevel="3">
+    <DisplayName>Idle Heater RTD 8401</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Idle Heater RTD 8401"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=68" BrowseName="2:Drum Heater RTD 8400" DataType="INT" AccessLevel="3">
+    <DisplayName>Drum Heater RTD 8400</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Drum Heater RTD 8400"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=69" BrowseName="2:Idle Heater Selector Switch 8006" DataType="BOOL" AccessLevel="3">
+    <DisplayName>Idle Heater Selector Switch 8006</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Idle Heater Selector Switch 8006"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=70" BrowseName="2:Distance Sensor Input 8205" DataType="INT" AccessLevel="3">
+    <DisplayName>Distance Sensor Input 8205</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Distance Sensor Input 8205"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=71" BrowseName="2:Particle Brake Analog Signal (0-10V) 8211" DataType="INT" AccessLevel="3">
+    <DisplayName>Particle Brake Analog Signal (0-10V) 8211</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+    <Extensions>
+      <Extension>
+        <si:VariableMapping>"Particle Brake Analog Signal (0-10V) 8211"</si:VariableMapping>
+      </Extension>
+    </Extensions>
+  </UAVariable>
+</UANodeSet>

@@ -8,19 +8,39 @@ timeouts:
 
 nodes:
 #CRC
-    crc_distance: ns=4;i=2
+  traveler_id: 1
+  part_count:
+  total_part_count: ns=2;i=42
+  time_stamp: #don't need
+  top_heater_SV: ns=2;i=65
+  top_heater_PV: ns=2;i=68
+  top_heater_enable: ns=2;i=53
+  bottom_heater_SV: ns=2;i=66
+  bottom_heater_PV: ns=2;i=67
+  bottom_heater_enable: ns=2;i=69
+  cooling_fans: ns=2;i=56
+  line_speed: ns=2;i=52
+  waste_tension: ns=2;i=63
+  feed_tension: ns=2;i=58
+  roll_diameter: ns=2;i=70
+  start_mode: ns=2;i=64
+  slow_start_mode: ns=2;i=60
+  stop_mode: ns=2;i=61
+  jog_mode: ns=2;i=57
+  safety_ok: ns=2;i=59
+  system_enable: ns=2;i=62
 
-#linescan
-    part_count: ns=2;s=Part_Count
-    job_number: ns=2;s=Job_Number
-    count_of_blobs: ns=2;s=Count_of_Blobs
-    part_width: ns=2;s=Part_Width
-    histogram_avg: ns=2;s=Histogram_Avg
-    histogram_contrast: ns=2;s=Histogram_Contrast
-    job_active: ns=2;s=Job_Active
-    write_ok: ns=2;s=Write_OK
-    too_many_blobs: ns=2;s=Too_Many_Blobs
-    really_big_blob: ns=2;s=Really_Big_Blob
-    too_many_big_blobs: ns=2;s=Too_Many_Big_Blobs
+##linescan
+#    part_count: ns=2;s=Part_Count
+#    job_number: ns=2;s=Job_Number
+#    count_of_blobs: ns=2;s=Count_of_Blobs
+#    part_width: ns=2;s=Part_Width
+#    histogram_avg: ns=2;s=Histogram_Avg
+#    histogram_contrast: ns=2;s=Histogram_Contrast
+#    job_active: ns=2;s=Job_Active
+#    write_ok: ns=2;s=Write_OK
+#    too_many_blobs: ns=2;s=Too_Many_Blobs
+#    really_big_blob: ns=2;s=Really_Big_Blob
+#    too_many_big_blobs: ns=2;s=Too_Many_Big_Blobs
 
 

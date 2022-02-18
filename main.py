@@ -14,22 +14,39 @@ yams = utilities.yaml_loader('opc_config.yml')
 
 if __name__ == '__main__':
 
-    ls_data = [yams['nodes']['job_number'],
-               yams['nodes']['count_of_blobs'],
-               yams['nodes']['part_width'],
-               yams['nodes']['histogram_avg'],
-               yams['nodes']['histogram_contrast']
-               ]
+    opc_data = [yams['nodes']['traveler_id'],
+                yams['nodes']['part_count'],
+                yams['nodes']['total_part_count'],
+                yams['nodes']['histogram_avg'],
+                yams['nodes']['histogram_contrast'],
+                yams['nodes']['top_heater_SV'],
+                yams['nodes']['top_heater_PV'],
+                yams['nodes']['top_heater_enable'],
+                yams['nodes']['bottom_heater_SV'],
+                yams['nodes']['bottom_heater_PV'],
+                yams['nodes']['bottom_heater_enable'],
+                yams['nodes']['cooling_fans'],
+                yams['nodes']['line_speed'],
+                yams['nodes']['waste_tension'],
+                yams['nodes']['feed_tension'],
+                yams['nodes']['roll_diameter'],
+                yams['nodes']['start_mode'],
+                yams['nodes']['slow_start_mode'],
+                yams['nodes']['stop_mode'],
+                yams['nodes']['jog_mode'],
+                yams['nodes']['safety_ok'],
+                yams['nodes']['system_enable']
+                ]
 
     value = 0
     try:
         while True:
-            new_value = OPC_Connector.get_node_value(yams['nodes']['part_count'])
+            new_value = OPC_Connector.get_node_value(yams['nodes']['total_part_count'])
             if value != new_value:
                 value = new_value
-                data = OPC_Connector.get_node_values(ls_data)
+                data = OPC_Connector.get_node_values(opc_data)
                 data.insert(0,value)
-                job_status = OPC_Connector.get_node_value(yams['nodes']['job_active'])
+                job_status = OPC_Connector.get_node_value(yams['nodes']['traveler_id'])
                 if job_status:
                     print(data)
                     pSQL.send_linescan_to_pSQL(data)

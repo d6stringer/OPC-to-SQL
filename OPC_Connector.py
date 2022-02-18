@@ -11,8 +11,8 @@ yam_loaction = 'opc_config.yml'
 yam = utilities.yaml_loader(yam_loaction)
 
 #create client, timeout must match the server set in TIA portal
-client = Client(yam['ip_addresses']['cognex_linescan']) #actual timeout is changed in client.py
-client.session_timeout = yam['timeouts']['default']
+client = Client(yam['ip_addresses']['crc_opc'])
+client.session_timeout = yam['timeouts']['default'] #actual timeout is changed in client.py
 client.connect()
 
 logging.basicConfig(level=logging.WARN)
