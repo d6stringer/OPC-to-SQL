@@ -4,31 +4,30 @@ ip_addresses:
   crc_opc: "ocp.tcp://192.168.54.15:4840"
 
 timeouts:
-    default: 360000
+    default: 10000
 
 nodes:
 #CRC
   traveler_id: 1
-  part_count:
-  total_part_count: ns=2;i=42
-  time_stamp: #don't need
-  top_heater_SV: ns=2;i=65
-  top_heater_PV: ns=2;i=68
-  top_heater_enable: ns=2;i=53
-  bottom_heater_SV: ns=2;i=66
-  bottom_heater_PV: ns=2;i=67
-  bottom_heater_enable: ns=2;i=69
-  cooling_fans: ns=2;i=56
-  line_speed: ns=2;i=52
-  waste_tension: ns=2;i=63
-  feed_tension: ns=2;i=58
-  roll_diameter: ns=2;i=70
-  start_mode: ns=2;i=64
-  slow_start_mode: ns=2;i=60
-  stop_mode: ns=2;i=61
-  jog_mode: ns=2;i=57
-  safety_ok: ns=2;i=59
-  system_enable: ns=2;i=62
+  part_count: 0
+  total_part_count: ns=4;i=42
+  top_heater_SV: ns=4;i=65
+  top_heater_PV: ns=4;i=68
+  top_heater_enable: ns=4;i=53
+  bottom_heater_SV: ns=4;i=66
+  bottom_heater_PV: ns=4;i=67
+  bottom_heater_enable: ns=4;i=69
+  cooling_fans: ns=4;i=56
+  line_speed: ns=4;i=52
+  waste_tension: ns=4;i=63
+  feed_tension: ns=4;i=58
+  roll_diameter: ns=4;i=70
+  start_mode: ns=4;i=64
+  slow_start_mode: ns=4;i=60
+  stop_mode: ns=4;i=61
+  jog_mode: ns=4;i=57
+  safety_ok: ns=4;i=59
+  system_enable: ns=4;i=62
 
 ##linescan
 #    part_count: ns=2;s=Part_Count

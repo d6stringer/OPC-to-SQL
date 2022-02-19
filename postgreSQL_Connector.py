@@ -4,6 +4,8 @@ import psycopg2
 from decouple import config
 import datetime
 #make the connection to the RDB
+
+
 def pSQL_conn():
 
     pSQL_conn = psycopg2.connect(
@@ -15,9 +17,17 @@ def pSQL_conn():
     )
     return pSQL_conn
 
+def SQL_string_machine(variables, data):
+    sql_string =
+    "
+    """
+    """
+    "
+
 def send_linescan_to_pSQL(data):
     connection = pSQL_conn()
     cursor = connection.cursor()
+    data
     cursor.execute("""
         INSERT INTO machine_run_data (
             traveler_id, 
@@ -43,8 +53,8 @@ def send_linescan_to_pSQL(data):
             system_enable
             ) 
         VALUES (
-            %s, 
-            %s, 
+            1, 
+            1, 
             %s, 
             default,
             %s, 
@@ -66,13 +76,14 @@ def send_linescan_to_pSQL(data):
             %s
         )
         """,
-        (data[0], data[1], data[2], data[3], data[4], data[5]))
+        data)
     # row = cursor.fetchone()
     # while row is not None:
     #     print(row)
     #     row = cursor.fetchone()
     connection.commit()
     connection.close()
+    return
 
 
 # data = [4.0, 18.0, 3.0, 1550.2857666015625, 113.65880584716797, 20.866485595703125]

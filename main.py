@@ -5,7 +5,6 @@
 
 import postgreSQL_Connector as pSQL
 import time
-
 import OPC_Connector
 import utilities
 
@@ -14,11 +13,7 @@ yams = utilities.yaml_loader('opc_config.yml')
 
 if __name__ == '__main__':
 
-    opc_data = [yams['nodes']['traveler_id'],
-                yams['nodes']['part_count'],
-                yams['nodes']['total_part_count'],
-                yams['nodes']['histogram_avg'],
-                yams['nodes']['histogram_contrast'],
+    opc_data = [yams['nodes']['total_part_count'],
                 yams['nodes']['top_heater_SV'],
                 yams['nodes']['top_heater_PV'],
                 yams['nodes']['top_heater_enable'],
@@ -46,7 +41,7 @@ if __name__ == '__main__':
                 value = new_value
                 data = OPC_Connector.get_node_values(opc_data)
                 data.insert(0,value)
-                job_status = OPC_Connector.get_node_value(yams['nodes']['traveler_id'])
+                job_status = 1 #OPC_Connector.get_node_value(yams['nodes']['traveler_id'])
                 if job_status:
                     print(data)
                     pSQL.send_linescan_to_pSQL(data)
