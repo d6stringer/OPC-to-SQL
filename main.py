@@ -10,6 +10,18 @@ import utilities
 
 yams = utilities.yaml_loader('opc_config.yml')
 
+def get_and_send():
+    data = OPC_Connector.get_node_values(opc_data)
+    job_status = 1  # not really using right now but might implement in the future
+    if job_status:
+        print(data)
+        pSQL.send_data_to_pSQL(data)
+        # OPC_Connector.int_change(yams['nodes']['write_ok'],1) #this writes back to the PLC that the connection is OK
+    else:
+        # OPC_Connector.int_change(yams['nodes']['write_ok'],0) #this writes back to the PLC that the connection is NOT OK
+        pass
+
+
 if __name__ == '__main__':
 
     # opc_data = list(yams['nodes'].values()) #while this does work, it may not be advised since it may not come in the same order every time
@@ -43,33 +55,20 @@ if __name__ == '__main__':
             new_value = OPC_Connector.get_node_value(yams['nodes']['total_part_count'])
             if value != new_value:
                 value = new_value
-                # opc_data_string = ", ".join([str(opc_data[x]) for x in range(len(opc_data))])
-                # print(opc_data_string)
-                data = OPC_Connector.get_node_values(opc_data)
-                # data.insert(0,value)
-                job_status = 1
-                if job_status:
-                    print(data)
-                    pSQL.send_data_to_pSQL(data)
-                    last_job = time.time()
-                    # OPC_Connector.int_change(yams['nodes']['write_ok'],1)
-                else:
-                    # OPC_Connector.int_change(yams['nodes']['write_ok'],0)
-                    pass
+                get_and_send()
+                last_job = time.time()
 
-            time.sleep(0.1)
+            time.sleep(0.1) #just a "governor" of sorts
 
             if time.time() - last_job > time_out:
-                data = OPC_Connector.get_node_values(opc_data)
-                job_status = 1
-                if job_status:
-                    print(data)
-                    pSQL.send_data_to_pSQL(data)
-                    last_job = time.time()
-
-
+                get_and_send()
+                last_job = time.time()
 
 
     except KeyboardInterrupt:
         print('break')
         OPC_Connector.kill_session()
+
+    except TimeoutError:
+        print("aw shippidy flomps  you've got a time out error")
+        pass

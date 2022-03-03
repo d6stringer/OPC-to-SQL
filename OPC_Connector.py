@@ -2,7 +2,7 @@
 #Adapted from examples found here: https://github.com/FreeOpcUa/python-opcua/blob/master/examples/client-example.py
 
 import logging
-import time
+from time import time
 from opcua import Client, ua
 import utilities
 
@@ -12,7 +12,7 @@ yam = utilities.yaml_loader(yam_loaction)
 
 #create client, timeout must match the server set in TIA portal
 client = Client(yam['ip_addresses']['crc_opc'])
-client.session_timeout = yam['timeouts']['default'] #actual timeout is changed in client.py
+# client.session_timeout = yam['timeouts']['default'] #actual timeout is changed in client.py?
 client.connect()
 
 logging.basicConfig(level=logging.WARN)
