@@ -10,9 +10,9 @@ import utilities
 
 yams = utilities.yaml_loader('opc_config.yml')
 
-
 if __name__ == '__main__':
 
+    # opc_data = list(yams['nodes'].values()) #while this does work, it may not be advised since it may not come in the same order every time
     opc_data = [yams['nodes']['traveler_id'],
                 yams['nodes']['part_count'],
                 yams['nodes']['total_part_count'],
@@ -36,6 +36,8 @@ if __name__ == '__main__':
                 ]
 
     value = 0
+    last_job = time.time()
+    time_out = 60
     try:
         while True:
             new_value = OPC_Connector.get_node_value(yams['nodes']['total_part_count'])
@@ -49,12 +51,23 @@ if __name__ == '__main__':
                 if job_status:
                     print(data)
                     pSQL.send_data_to_pSQL(data)
+                    last_job = time.time()
                     # OPC_Connector.int_change(yams['nodes']['write_ok'],1)
                 else:
                     # OPC_Connector.int_change(yams['nodes']['write_ok'],0)
                     pass
 
             time.sleep(0.1)
+
+            if time.time() - last_job > time_out:
+                data = OPC_Connector.get_node_values(opc_data)
+                job_status = 1
+                if job_status:
+                    print(data)
+                    pSQL.send_data_to_pSQL(data)
+                    last_job = time.time()
+
+
 
 
     except KeyboardInterrupt:
