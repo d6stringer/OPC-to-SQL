@@ -13,7 +13,9 @@ yams = utilities.yaml_loader('opc_config.yml')
 
 if __name__ == '__main__':
 
-    opc_data = [yams['nodes']['total_part_count'],
+    opc_data = [yams['nodes']['traveler_id'],
+                yams['nodes']['part_count'],
+                yams['nodes']['total_part_count'],
                 yams['nodes']['top_heater_SV'],
                 yams['nodes']['top_heater_PV'],
                 yams['nodes']['top_heater_enable'],
@@ -39,15 +41,18 @@ if __name__ == '__main__':
             new_value = OPC_Connector.get_node_value(yams['nodes']['total_part_count'])
             if value != new_value:
                 value = new_value
+                # opc_data_string = ", ".join([str(opc_data[x]) for x in range(len(opc_data))])
+                # print(opc_data_string)
                 data = OPC_Connector.get_node_values(opc_data)
-                data.insert(0,value)
-                job_status = 1 #OPC_Connector.get_node_value(yams['nodes']['traveler_id'])
+                # data.insert(0,value)
+                job_status = 1
                 if job_status:
                     print(data)
-                    pSQL.send_linescan_to_pSQL(data)
-                    OPC_Connector.int_change(yams['nodes']['write_ok'],1)
+                    pSQL.send_data_to_pSQL(data)
+                    # OPC_Connector.int_change(yams['nodes']['write_ok'],1)
                 else:
-                    OPC_Connector.int_change(yams['nodes']['write_ok'],0)
+                    # OPC_Connector.int_change(yams['nodes']['write_ok'],0)
+                    pass
 
             time.sleep(0.1)
 

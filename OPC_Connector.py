@@ -60,10 +60,12 @@ def get_node_values(nodes):
         # get values from a list of nodes & returns a list of their values
         for node in nodes:
             node_value = client.get_node(node).get_value()
-            if node_value:
+            if node_value is not None:
                 data.append(node_value)
             else:
-                data.append(0)
+                data.append('bad_data')
+        # node_values = client.set_values(nodes)
+        # print(node_values)
     finally:
         #client.disconnect()
         return data

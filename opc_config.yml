@@ -8,8 +8,8 @@ timeouts:
 
 nodes:
 #CRC
-  traveler_id: 1
-  part_count: 0
+  traveler_id: ns=4;i=74
+  part_count: ns=4;i=75
   total_part_count: ns=4;i=42
   top_heater_SV: ns=4;i=65
   top_heater_PV: ns=4;i=68
