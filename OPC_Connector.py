@@ -1,3 +1,4 @@
+#! /home/daniel/projects/CRC-DATA/opc-client-env/bin/python3
 #Bay Materials
 #Adapted from examples found here: https://github.com/FreeOpcUa/python-opcua/blob/master/examples/client-example.py
 
@@ -9,6 +10,11 @@ import utilities
 #get your yams
 yam_loaction = 'opc_config.yml'
 yam = utilities.yaml_loader(yam_loaction)
+
+def connect():
+    client = Client(yam['ip_addresses']['crc_opc'])
+    client.connect()
+    logging.basicConfig(level=logging.WARN)
 
 #create client, timeout must match the server set in TIA portal
 client = Client(yam['ip_addresses']['crc_opc'])
@@ -37,7 +43,7 @@ def kill_session():
     try:
         print("disconnecting client...")
         client.disconnect()
-        time.sleep(1)
+        time.sleep(1) #probably don't need this
     except:
         print("Cant' kill session")
     finally:
@@ -49,6 +55,10 @@ def get_node_value(node):
         node_value = client.get_node(node).get_value()
         if node_value:
             return node_value
+
+    except TimeoutError:
+        print("timeout error on w/ {0}".format(node) )
+        return None
 
     finally:
         #client.disconnect()

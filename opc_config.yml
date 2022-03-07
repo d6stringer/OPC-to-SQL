@@ -28,6 +28,8 @@ nodes:
   jog_mode: ns=4;i=57
   safety_ok: ns=4;i=59
   system_enable: ns=4;i=62
+  waste_tension_enable: ns=4;i=76
+  feed_tension_enable: ns=4;i=77
 
 ##linescan
 #    part_count: ns=2;s=Part_Count

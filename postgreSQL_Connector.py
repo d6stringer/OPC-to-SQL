@@ -10,8 +10,8 @@ def pSQL_conn():
 
     pSQL_conn = psycopg2.connect(
         host=config('host', default=''),
-        database=config('database', default=''),
         user=config('user', default=''),
+        database=config('database', default=''),
         password=config('password', default=''),
         port=config('port', default='')
     )
@@ -31,8 +31,8 @@ def send_data_to_pSQL(data):
 
     # data_string = ", ".join([str(data[x]) for x in range(len(data))])
     squirrls = """
-        INSERT INTO machine_run_data (id, traveler_id, traveler_code, part_count, total_part_count, time_stamp, top_heater_SV, top_heater_PV, top_heater_enable, bottom_heater_SV, bottom_heater_PV, bottom_heater_enable, cooling_fans, line_speed, waste_tension, feed_tension, roll_diameter, start_mode, slow_start_mode, stop_mode, jog_mode, safety_ok, system_enable) 
-        VALUES (default, 1,%s, %s, %s,current_timestamp, %s, %s, %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        INSERT INTO machine_run_data (id, traveler_id, traveler_code, part_count, total_part_count, time_stamp, top_heater_SV, top_heater_PV, top_heater_enable, bottom_heater_SV, bottom_heater_PV, bottom_heater_enable, cooling_fans, line_speed, waste_tension, feed_tension, roll_diameter, start_mode, slow_start_mode, stop_mode, jog_mode, safety_ok, system_enable, waste_tension_enable, feed_tension_enable) 
+        VALUES (default, 1,%s, %s, %s,current_timestamp, %s, %s, %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
         """
     cursor.execute(squirrls, data)
     connection.commit()

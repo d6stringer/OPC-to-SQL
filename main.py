@@ -44,14 +44,18 @@ if __name__ == '__main__':
                 yams['nodes']['stop_mode'],
                 yams['nodes']['jog_mode'],
                 yams['nodes']['safety_ok'],
-                yams['nodes']['system_enable']
+                yams['nodes']['system_enable'],
+                yams['nodes']['waste_tension_enable'],
+                yams['nodes']['feed_tension_enable']
                 ]
 
     value = 0
     last_job = time.time()
     time_out = 60
+    retry_time = 3
+    retry_count = 0
     try:
-        while True:
+        while OPC_Connector.client:
             new_value = OPC_Connector.get_node_value(yams['nodes']['total_part_count'])
             if value != new_value:
                 value = new_value
@@ -64,11 +68,29 @@ if __name__ == '__main__':
                 get_and_send()
                 last_job = time.time()
 
+        if not OPC_Connector.client and time.time() - last_job > retry_time:
+            print('Trying to reconnect to OPC server')
+            OPC_Connector.connect()
+            last_job = time.time()
+            # retry_count += 1
+            # if retry_count > 10:
+            #     ConnectionError = True
+
 
     except KeyboardInterrupt:
-        print('break')
+        print('Keyboard Interrupt Pressed, trying to kill the session')
         OPC_Connector.kill_session()
 
     except TimeoutError:
         print("aw shippidy flomps  you've got a time out error")
+
+    except:
+        print("this was the catch-all exception")
+        print("trying to reconnect")
+        OPC_Connector.connect()
+    # except ConnectionError:
+    #     print("there was a connection error")
+
+
+    finally:
         pass
