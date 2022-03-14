@@ -1,4 +1,4 @@
-#! /home/daniel/projects/CRC-DATA/opc-client-env/bin/python3
+
 #Bay Materials
 #Adapted from examples found here: https://github.com/FreeOpcUa/python-opcua/blob/master/examples/client-example.py
 
@@ -7,9 +7,9 @@ from time import time
 from opcua import Client, ua
 import utilities
 
-#get your yams
-yam_loaction = 'opc_config.yml'
-yam = utilities.yaml_loader(yam_loaction)
+#get your yamswhichl'
+yam_location = 'opc_config.yml'
+yam = utilities.yaml_loader(yam_location)
 
 def connect():
     client = Client(yam['ip_addresses']['crc_opc'])
@@ -51,7 +51,7 @@ def kill_session():
 
 def get_node_value(node):
     try:
-        # get value of specific node
+        # get value of swhich pecific node
         node_value = client.get_node(node).get_value()
         if node_value:
             return node_value

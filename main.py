@@ -10,8 +10,35 @@ import utilities
 
 yams = utilities.yaml_loader('opc_config.yml')
 
-def get_and_send():
+# opc_data = list(yams['nodes'].values()) #while this does work, it may not be advised since it may not come in the same order every time
+#removed this yams['nodes']['total_part_count'], from data to see if it will be more stable.
+opc_data = [yams['nodes']['traveler_id'],
+            yams['nodes']['part_count'],
+
+            yams['nodes']['top_heater_SV'],
+            yams['nodes']['top_heater_PV'],
+            yams['nodes']['top_heater_enable'],
+            yams['nodes']['bottom_heater_SV'],
+            yams['nodes']['bottom_heater_PV'],
+            yams['nodes']['bottom_heater_enable'],
+            yams['nodes']['cooling_fans'],
+            yams['nodes']['line_speed'],
+            yams['nodes']['waste_tension'],
+            yams['nodes']['feed_tension'],
+            yams['nodes']['roll_diameter'],
+            yams['nodes']['start_mode'],
+            yams['nodes']['slow_start_mode'],
+            yams['nodes']['stop_mode'],
+            yams['nodes']['jog_mode'],
+            yams['nodes']['safety_ok'],
+            yams['nodes']['system_enable'],
+            yams['nodes']['waste_tension_enable'],
+            yams['nodes']['feed_tension_enable']
+            ]
+
+def get_and_send(tc):
     data = OPC_Connector.get_node_values(opc_data)
+    data.insert(2,tc)
     job_status = 1  # not really using right now but might implement in the future
     if job_status:
         print(data)
@@ -21,34 +48,7 @@ def get_and_send():
         # OPC_Connector.int_change(yams['nodes']['write_ok'],0) #this writes back to the PLC that the connection is NOT OK
         pass
 
-
-if __name__ == '__main__':
-
-    # opc_data = list(yams['nodes'].values()) #while this does work, it may not be advised since it may not come in the same order every time
-    opc_data = [yams['nodes']['traveler_id'],
-                yams['nodes']['part_count'],
-                yams['nodes']['total_part_count'],
-                yams['nodes']['top_heater_SV'],
-                yams['nodes']['top_heater_PV'],
-                yams['nodes']['top_heater_enable'],
-                yams['nodes']['bottom_heater_SV'],
-                yams['nodes']['bottom_heater_PV'],
-                yams['nodes']['bottom_heater_enable'],
-                yams['nodes']['cooling_fans'],
-                yams['nodes']['line_speed'],
-                yams['nodes']['waste_tension'],
-                yams['nodes']['feed_tension'],
-                yams['nodes']['roll_diameter'],
-                yams['nodes']['start_mode'],
-                yams['nodes']['slow_start_mode'],
-                yams['nodes']['stop_mode'],
-                yams['nodes']['jog_mode'],
-                yams['nodes']['safety_ok'],
-                yams['nodes']['system_enable'],
-                yams['nodes']['waste_tension_enable'],
-                yams['nodes']['feed_tension_enable']
-                ]
-
+def main_func():
     value = 0
     last_job = time.time()
     time_out = 60
@@ -59,7 +59,7 @@ if __name__ == '__main__':
             new_value = OPC_Connector.get_node_value(yams['nodes']['total_part_count'])
             if value != new_value:
                 value = new_value
-                get_and_send()
+                get_and_send(new_value)
                 last_job = time.time()
 
             time.sleep(0.1) #just a "governor" of sorts
@@ -84,13 +84,24 @@ if __name__ == '__main__':
     except TimeoutError:
         print("aw shippidy flomps  you've got a time out error")
 
+    except ConnectionResetError:
+        #this is what you get when you reboot the PLC
+        pass
+
     except:
         print("this was the catch-all exception")
         print("trying to reconnect")
+        OPC_Connector.kill_session()
+        time.sleep(5)
         OPC_Connector.connect()
+        main_func()
     # except ConnectionError:
     #     print("there was a connection error")
 
 
     finally:
-        pass
+        main_func()
+
+if __name__ == '__main__':
+    main_func()
+
