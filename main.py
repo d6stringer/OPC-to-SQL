@@ -10,6 +10,7 @@ import utilities
 
 yams = utilities.yaml_loader('opc_config.yml')
 
+
 # opc_data = list(yams['nodes'].values()) #while this does work, it may not be advised since it may not come in the same order every time
 #removed this yams['nodes']['total_part_count'], from data to see if it will be more stable.
 opc_data = [yams['nodes']['traveler_id'],
@@ -49,6 +50,7 @@ def get_and_send(tc):
         pass
 
 def main_func():
+    except_count = 0
     value = 0
     last_job = time.time()
     time_out = 60
@@ -65,7 +67,8 @@ def main_func():
             time.sleep(0.1) #just a "governor" of sorts
 
             if time.time() - last_job > time_out:
-                get_and_send()
+                ts = OPC_Connector.get_node_value(yams['nodes']['total_part_count'])
+                get_and_send(ts)
                 last_job = time.time()
 
         if not OPC_Connector.client and time.time() - last_job > retry_time:
@@ -88,19 +91,21 @@ def main_func():
         #this is what you get when you reboot the PLC
         pass
 
-    except:
-        print("this was the catch-all exception")
-        print("trying to reconnect")
-        OPC_Connector.kill_session()
-        time.sleep(5)
-        OPC_Connector.connect()
-        main_func()
+    # except:
+    #     print("this was the catch-all exception")
+    #     except_count += 1
+    #     print("We've had {0} exceptions", except_count)
+        # print("trying to reconnect")
+        # OPC_Connector.kill_session()
+        # time.sleep(5)
+        # OPC_Connector.connect()
+        # main_func()
     # except ConnectionError:
     #     print("there was a connection error")
 
 
     finally:
-        main_func()
+        pass
 
 if __name__ == '__main__':
     main_func()
